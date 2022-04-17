@@ -5,6 +5,7 @@
 #include <string.h>
 using namespace std;
 
+// function to check if 8-tile is solvable
 void isSolvable(char* v[]);
 
 int main(int argc, char* argv[])
@@ -16,13 +17,18 @@ int main(int argc, char* argv[])
 
 void isSolvable( char* v[]) {
     int numInversions = 0;
+    //store the console input into a string.
     string board = v[1];
 
+    // loop through the string and compare the order of them
     for (int i = 1; i < 9 ; i++) {
         if (board[i] > board[i+1]) {
             numInversions++;
         }
     }
+
+    // check if the Number of out of ordered pairs is even or odd
+    // ODD = unsolvable : EVEN == solvable
     if ((numInversions % 2) >= 1) {
         cout << "Not Solvable" << endl;
     }
